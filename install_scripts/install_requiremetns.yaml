@@ -1,0 +1,16 @@
+---
+- name: "Install requirements via apt"
+  hosts: all
+  remote_user: debian
+
+  tasks:
+  - name: Install a list of packages
+    become: yes
+    apt:
+      pkg:
+      - git
+      - network-manager
+      - apparmor-utils
+      - jq
+      - vim
+      update_cache: yes

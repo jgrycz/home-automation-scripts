@@ -1,0 +1,13 @@
+wyse:
+  model: WYSE Dell Z90D7 Zx0
+  cpu:
+    clock: 1,4GHz
+    type: AMD Embedded G-Series
+  ram:
+    size: 8GB
+    type: DDR3
+  ssd:
+    model: Crucial BX500
+    manufacter_code: CT120BX500SSD1
+    size: 120GB
+

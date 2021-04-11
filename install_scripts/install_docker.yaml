@@ -1,0 +1,27 @@
+---
+- name: "Playing with Ansible and Git"
+  hosts: all
+  remote_user: "{{ user }}"
+
+  vars:
+    workspace: /tmp/workspace
+
+  tasks:
+  - name: create workspace directory
+    file:
+      path: "{{ workspace }}"
+      state: directory
+  - name: Download docker installer
+    get_url:
+      url: https://get.docker.com
+      dest: "{{ workspace }}/get-docker.sh"
+      mode: '0755'
+  - name: Execute get-docker.sh script
+    become: yes
+    shell: "{{ workspace }}/get-docker.sh"
+  - name: "Add user: {{ user }} to docker group"
+    become: yes
+    user:
+      name: "{{ user }}"
+      groups: docker
+      append: yes
